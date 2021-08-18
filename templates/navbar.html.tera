@@ -1,0 +1,8 @@
+<nav>
+{% if session %}
+    <div class="menu"><a href="/logout">Logout</a></div>
+{% else %}
+    <div class="menu"><a href="/login">Login</a></div>
+    <div class="menu"><a href="/register">Register</a></div>
+{% endif %}
+</nav>
