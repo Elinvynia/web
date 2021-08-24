@@ -1,3 +1,4 @@
+use rocket::http::{Cookie, Status};
 use rocket::request::{FromRequest, Outcome, Request};
 use serde::{Deserialize, Serialize};
 
@@ -17,7 +18,13 @@ impl<'r> FromRequest<'r> for Auth {
         let cookies = request.cookies();
 
         if let Some(cookie) = cookies.get_private("session") {
-            let session = serde_json::from_str(cookie.value()).unwrap();
+            let session = match serde_json::from_str(cookie.value()) {
+                Ok(s) => s,
+                Err(_) => {
+                    cookies.remove_private(Cookie::named("session"));
+                    return Outcome::Failure((Status::InternalServerError, ()));
+                }
+            };
             return Outcome::Success(Auth(session));
         }
 

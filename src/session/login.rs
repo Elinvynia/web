@@ -33,7 +33,6 @@ pub async fn login_post(
     mut conn: Connection<Db>,
     jar: &CookieJar<'_>,
 ) -> Result<MultiResponse, WebError> {
-    println!("1");
     let q = sqlx::query!(
         "SELECT id, username, password FROM user WHERE username = ?",
         &form.username
@@ -49,7 +48,6 @@ pub async fn login_post(
             )))
         }
     };
-    println!("2");
 
     let valid = bcrypt::verify(&form.password, &row.password)?;
     if !valid {
@@ -58,7 +56,6 @@ pub async fn login_post(
             context!(error: "Invalid password."),
         )));
     }
-    println!("3");
 
     let session = Session {
         user_id: row.id,
