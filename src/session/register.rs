@@ -38,7 +38,7 @@ pub async fn register_post(
     if row.is_some() {
         return Ok(Template::render(
             "register",
-            context!(error: "User does not exist."),
+            context!(error: "User already exists."),
         ));
     }
 

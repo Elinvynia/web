@@ -1,17 +1,17 @@
 {% extends "base" %}
 
-{% block content %}
-    <form class="form" action="/login" method="post">
-        <div>
-            <label class="form-label" for="username">Username:</label>
-            <input class="form-field" type="text" name="username" id="username" required>
-        </div>
-        <div>
-            <label class="form-label" for="password">Password:</label>
-            <input class="form-field" type="password" name="password" id="password" required>
-        </div>
-        <div class="center">
-            <input class="form-submit" type="submit" value="Login">
-        </div>
-    </form>
-{% endblock content %}
+{% block content %}<div class="flex-center">
+        <form class="form" action="/login" method="post">
+            <div>
+                <label class="form-label" for="username">Username:</label>
+                <input class="form-field" type="text" name="username" id="username" required>
+            </div>
+            <div>
+                <label class="form-label" for="password">Password:</label>
+                <input class="form-field" type="password" name="password" id="password" required>
+            </div>
+            <div class="center">
+                <input class="form-submit" type="submit" value="Login">
+            </div>
+        </form>
+        </div>{% endblock content %}

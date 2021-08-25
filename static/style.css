@@ -11,12 +11,18 @@ nav {
     display: flex;
     height: 60px;
     background-color: red;
-    flex-direction: row-reverse;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .menu {
     padding: 10px;
     margin: 10px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
 }
 
 a {
@@ -26,8 +32,14 @@ a {
 
 .container {
     flex: 1 0 auto;
-    justify-content: center;
     display: flex;
+}
+
+.content {
+    font-size: 14pt;
+    margin: 0 auto;
+    max-width: 80%;
+    width: 100%;
 }
 
 .form {
@@ -47,6 +59,12 @@ a {
 
 .center {
     text-align: center;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 footer {
